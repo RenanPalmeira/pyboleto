@@ -201,6 +201,13 @@ class BoletoHTML(object):
         tpl_data['barcode'] = self._codigoBarraI25(boletoDados.barcode)
 
         self.html += tpl.substitute(tpl_data)
+    
+    def drawCanhoto(self, html):
+        if html:
+            self.html += str(html)
+    
+    def printPage(self):
+        self.html += '<script>window.print();</script>'
 
     def drawBoletoCarneDuplo(self, boletoDados1, boletoDados2=None):
         """Imprime um boleto tipo carnê com 2 boletos por página.
